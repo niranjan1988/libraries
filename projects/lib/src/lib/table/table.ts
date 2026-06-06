@@ -2,6 +2,7 @@ import { Component, input, computed } from '@angular/core';
 
 @Component({
   selector: 'lib-table',
+  standalone: true,
   imports: [],
   templateUrl: './table.html',
   styleUrl: './table.css',

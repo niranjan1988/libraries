@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-
+import { Table } from '../../../lib/src/lib/table/table';
 
 @Component({
   selector: 'app-root',

@@ -4,6 +4,11 @@
   "cli": {
     "packageManager": "yarn"
   },
+  "schematics": {
+    "@schematics/angular:component": {
+      "standalone": true
+    }
+  },
   "newProjectRoot": "projects",
   "projects": {
     "integration": {
