@@ -1,0 +1,142 @@
+/* ─── Design Tokens ─── */
+:host {
+  --purple-50:  #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-200: #e9d5ff;
+  --purple-300: #d8b4fe;
+  --purple-400: #c084fc;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7e22ce;
+  --purple-800: #6b21a8;
+  --purple-900: #581c87;
+
+  --surface:      #ffffff;
+  --surface-alt:  var(--purple-50);
+  --border:       var(--purple-200);
+  --text-primary: #1e1b2e;
+  --text-secondary: #6b6584;
+
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(88, 28, 135, 0.08),
+            0 1px 4px  rgba(88, 28, 135, 0.04);
+
+  display: block;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ─── Wrapper ─── */
+.table-wrapper {
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+/* ─── Table ─── */
+.lib-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* ─── Header ─── */
+.lib-table thead {
+  background: linear-gradient(135deg, var(--purple-700), var(--purple-600));
+}
+
+.lib-table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+  position: relative;
+}
+
+.lib-table th::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.lib-table th:last-child::after {
+  display: none;
+}
+
+/* ─── Body Rows ─── */
+.lib-table td {
+  padding: 12px 20px;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lib-table tbody tr {
+  transition: background 0.15s ease;
+}
+
+.lib-table tbody tr:nth-child(even) {
+  background: var(--surface-alt);
+}
+
+.lib-table tbody tr:hover {
+  background: var(--purple-100);
+}
+
+.lib-table tbody tr:hover td {
+  color: var(--purple-900);
+}
+
+.lib-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ─── Empty State ─── */
+.empty-row td {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.empty-state.standalone {
+  padding: 48px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 2rem;
+  opacity: 0.6;
+}
+
+/* ─── Scrollable on small viewports ─── */
+@media (max-width: 640px) {
+  .table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lib-table th,
+  .lib-table td {
+    padding: 10px 14px;
+    font-size: 0.8125rem;
+  }
+}

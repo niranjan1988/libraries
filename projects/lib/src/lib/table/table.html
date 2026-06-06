@@ -1,0 +1,37 @@
+<div class="table-wrapper">
+  @if (displayColumns().length) {
+    <table class="lib-table">
+      <thead>
+        <tr>
+          @for (col of displayColumns(); track col) {
+            <th>{{ formatHeader(col) }}</th>
+          }
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of data(); track $index) {
+          <tr>
+            @for (col of displayColumns(); track col) {
+              <td>{{ cellValue(row, col) }}</td>
+            }
+          </tr>
+        }
+        @if (data().length === 0) {
+          <tr class="empty-row">
+            <td [attr.colspan]="displayColumns().length">
+              <div class="empty-state">
+                <span class="empty-icon">📭</span>
+                <span>No data available</span>
+              </div>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <div class="empty-state standalone">
+      <span class="empty-icon">📭</span>
+      <span>No data to display</span>
+    </div>
+  }
+</div>
